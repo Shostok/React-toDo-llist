@@ -10,12 +10,16 @@ function App() {
     setTodos([...todos, text]);
   };
 
+  const deleteTodoHandler = index => {
+    setTodos(todos.filter((_, idx) => idx !== index));
+  };
+
   return (
-    <>
+    <div className="App">
       <h1>Todo App</h1>
       <ToDoForm addTodo={addTodoHandler} />
-      <ToDoList todos={todos} />
-    </>
+      <ToDoList todos={todos} deleteTodo={deleteTodoHandler} />
+    </div>
   );
 }
 
